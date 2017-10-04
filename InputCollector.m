@@ -11,13 +11,13 @@
 @implementation InputCollector
 
 -(NSString *)inputForPrompt:(NSString *)promptString {
-    NSLog(@"What would you like do next? \n - Create a new contact list \n - List all contacts quit \n - Exit Application >> \n");
+    NSLog(@"%@", promptString);
     
-    char answerCString;
+    char answerCString[255];
     
-    fgets(&answerCString, 255, stdin);
+    fgets(answerCString, 255, stdin);
     
-    NSString *result = [NSString stringWithCString:&answerCString
+    NSString *result = [NSString stringWithCString:answerCString
                                           encoding:NSUTF8StringEncoding];
     
     //removes new line and white spaces
@@ -26,7 +26,6 @@
     
     return parsedResult;
 
-    
 }
 
 @end
