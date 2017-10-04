@@ -25,16 +25,17 @@ int main(int argc, const char * argv[]) {
                 Contact *newContact = [[Contact alloc]init];
                 NSString *emailInput = [inputCollector inputForPrompt:@"Enter email"];
                 [newContact setEmail:emailInput];
-    //            NSLog(@"contact email %@", [newContact email]);
                 NSString *nameInput = [inputCollector inputForPrompt:@"Enter name"];
                 newContact.name = nameInput;
                 
                 [contactList addContact:newContact];
        }
             else if ([parsedResult isEqual: @"list"]) {
-                for (Contact *c in contactList.contactList) {
-                    NSLog(@"%@ and %@", c.name, c.email);
-                }            }
+                for (int i = 0; i < [contactList.contactList count]; i++) {
+                    Contact *c = [contactList.contactList objectAtIndex:i];
+                    NSLog(@"%d. %@", i, c.name);
+                }
+        }
         
         }
         return 0;
