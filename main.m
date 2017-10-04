@@ -32,8 +32,8 @@ int main(int argc, const char * argv[]) {
                 [contactList addContact:newContact];
        }
             else if ([parsedResult isEqual: @"list"]) {
-                for (Contact *c in contactList) {
-                    NSLog(@"%@", c);
+                for (Contact *c in contactList.contactList) {
+                    NSLog(@"%@ and %@", c.name, c.email);
                 }            }
         
         }
